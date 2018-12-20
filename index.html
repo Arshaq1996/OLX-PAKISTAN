@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- bootstrap -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+        crossorigin="anonymous"></script>
+
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body onload="GetData();">
+
+    <!-- navbar -->
+    <div class="topnav" id="myTopnav">
+        <a href="index.html" class="activeMe">Home</a>
+        <a href="#news">Favoruite</a>
+        <a href="#contact">Maessage</a>
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal">
+            Post Ad
+            <i class="fa fa-cart-plus" style="font-size:24px; color:white;"></i>
+        </a>
+
+
+        <div class="dropdown1" id="userIcon">
+
+            <button class="dropbtn">
+                <i class="fa fa-user-circle-o" style="font-size:25px; color:#4CAF50"></i>
+                <i class="fa fa-caret-down" style="color:#4CAF50"></i>
+            </button>
+
+            <div class="dropdown-content">
+                <a href="signup.html">Signup</a>
+                <a href="login.html">Login</a>
+                <a href="javascript:void(0);" onclick="logout();">Logout</a>
+            </div>
+
+
+        </div>
+
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+    <!-- navbar ends -->
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ad details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Catagories
+
+                    <select class="form-control" id="category">
+                        <option value="Mobile">Mobile</option>
+                        <option value="Laptops">Laptops</option>
+                        <option value="Automobile">Automobile</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Gadgets">Gadgets</option>
+                    </select>
+
+                    Details:
+
+                    <input type="text" class="form-control" id="yourname" placeholder="YourName *">
+                    <input type="text" class="form-control" id="title" placeholder="Ad Title *">
+                    <input type=" number" class="form-control" id="model" placeholder="Model">
+                    <textarea class="form-control" id="description" placeholder="Description" rows="3"></textarea>
+                    <input type="file" class="form-control-file" id="upload">
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="postData();">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- model end -->
+
+    <div id="getData"></div>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBFCLN4q1-TZ27i67EntrQjxrZ-PoPCnpM",
+            authDomain: "olxpakistan-9459f.firebaseapp.com",
+            databaseURL: "https://olxpakistan-9459f.firebaseio.com",
+            projectId: "olxpakistan-9459f",
+            storageBucket: "olxpakistan-9459f.appspot.com",
+            messagingSenderId: "148091365344"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="app.js"></script>
+    
+</body>
+
+</html>
